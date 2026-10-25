@@ -1,6 +1,6 @@
 # Product Marketing Context — VESTA BAGS
 
-**Document version:** v2
+**Document version:** v3
 **Last updated:** 2026-10-25
 
 > Fuente completa de la marca: skill `.claude/skills/vesta/` (SKILL.md y references/). Si algo aquí contradice esa skill, manda la skill. Todo el contenido se escribe en **español de Bolivia, con tuteo**.
@@ -137,6 +137,7 @@
 *Decisions and tested lessons. Newest first. Keep it to about 20 active entries.*
 | Date | Learning | Evidence | Applies to | Status |
 |------|----------|----------|------------|--------|
+| 2026-10-25 | ESTILO OFICIAL APROBADO: «El charm de la casa» con la paleta nude de la web (sin colores fuera de paleta), charm de Vesta colgando del asa (ejemplo digital hasta tener el físico), una pieza oscura por fila, «Primavera», precio legible. Eslogan: «Elegante por fuera. Tierna por dentro.» | Aprobación del dueño | Diseño, social, marca | Activo |
 | 2026-10-25 | Le gustan más la propuesta formal (Maison) y la de la mascota; quiere un balance: elegante para elevar el valor y vender al precio real, con identidad única. Se enviaron 3 híbridos: A Maison con anfitriona, B El charm de la casa (recomendada: Vesta como charm dorado colgando de cada cartera), C Joya y sello. Pendiente su elección | Comentario del dueño | Diseño, posicionamiento | Abierto |
 | 2026-10-25 | No le gustó el feed de la v3. Se le mandaron 6 propuestas de feed para elegir estilo: 01 Vitrina Viva 2.0, 02 Vesta protagonista, 03 Maison VESTA (lujo formal), 04 Lujo con humor, 05 Vesta de lujo, 06 Vitrina Paceña. Pendiente su elección | Comentario del dueño | Diseño, social | Abierto |
 | 2026-10-25 | v2 (vitrina de color) gustó por el color, pero se sintió «básica». Encuesta: humor real de tendencias (meme aspiracional tipo Porsche, TikTok), collage revista y mockups de tendencia; sin stock todavía; Reels solo manos o una amiga; meta: seguidores + ventas; 5 a 8 h por semana; precio solo en catálogo o cartera sola. Se hizo la v3 «Vitrina Viva» | Encuesta del dueño | Diseño, social, video | Activo |
@@ -146,5 +147,6 @@
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v3 (2026-10-25): Estilo oficial aprobado («El charm de la casa»).
 - v2 (2026-10-25): Aprendizaje del rechazo de la v1 de carruseles y el estilo nuevo.
 - v1 (2026-10-25): Contexto inicial, armado a partir de la skill Vesta.

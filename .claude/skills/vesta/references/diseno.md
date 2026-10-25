@@ -1,6 +1,17 @@
 # Diseño gráfico (posts, historias, flyers)
 
-## v3 «Vitrina Viva» (vigente desde el 25/10/2026)
+## ★ ESTILO OFICIAL: «El charm de la casa» (aprobado por el dueño el 25/10/2026)
+Úsalo para TODO el feed. Lo anterior (v1, v2, v3) queda solo como historial.
+- **Paleta: solo los 6 colores de la web.** Fondos: marfil #FBF6F1, piedra #F0E2D6 y nude profundo #E6D0BE. Fondo noche: cacao oscuro #4E3A30. Acento: cacao #7A4B3A. Texto: espresso #221B18. **Nada de lila, rosado, dorado ni colores de colección en los fondos**: el color lo pone solo la cartera.
+- **Charm:** la mascota Vesta cuelga del asa de cada cartera con argolla y cadena punteada en cacao (en fondos oscuros, nude #E6D0BE), inclinada hacia afuera sin tapar el producto. Hoy es un **ejemplo digital**; cuando exista el charm físico, se fotografía de verdad. Las posiciones del asa están en `marketing/contenido/estilo-oficial/fuente/anchors.json`.
+- **Ritmo:** cada fila de 3 tiene una pieza en cacao oscuro (columna 3).
+- **Composición:** la cartera ocupa menos de la mitad de la pieza, centrada, con sombra suave. Etiqueta superior en versalitas espaciadas («Colección Primavera»: en Bolivia, de oct. a dic. es primavera). Nombre y precio abajo en Bodoni ~1,05u («Caramelo · Bs 700»).
+- **Piezas de frase:** «Elegante por fuera. Tierna por dentro.» (eslogan) y «La elegancia no es pasar desapercibida, es ser recordada.», con el charm solo.
+- **Fotos de escena:** sin texto que prometa charm si no lo tienen.
+- **Humor, memes y tendencias:** solo en Reels e historias. El feed es la vitrina.
+- Referencia: `marketing/contenido/estilo-oficial/VESTA-estilo-oficial-charm-de-la-casa.pdf`. Generador: `fuente/gen7.py` (función `bag()`).
+
+## v3 «Vitrina Viva» (historial)
 Encuesta del dueño: quiere más personalidad, humor real sacado de tendencias (meme aspiracional, formatos de TikTok), collage tipo revista y mockups de tendencia (notas del iPhone, chat, ticket, buscador, pase de abordar). Referencias: Charles & Keith, JW Pei, Coach, Kate Spade, tiendas latinas y revistas.
 - **Cuatro lenguajes:** vitrina de color (catálogo, con precio) · pantalla cotidiana (creativos, sin precio) · collage revista (sin precio) · foto en escena (estudio de color con cartera sola: con precio; casa decorada: sin precio).
 - **Estudio:** pared y piso con curva, sombra de contacto y sombra proyectada, sticker redondo de precio.
