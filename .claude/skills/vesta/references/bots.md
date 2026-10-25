@@ -1,5 +1,12 @@
 # Bots de IA para ventas
 
+## 0. Bot oficial de WhatsApp (ya construido)
+- `bot-whatsapp/worker.js`: bot de menú para la WhatsApp Cloud API de Meta, publicado gratis en Cloudflare Workers. Los textos están en `CONFIG`.
+- `bot-whatsapp/GUIA.md`: guía paso a paso en español. `bot-whatsapp/test.mjs`: pruebas (`node --test bot-whatsapp/test.mjs`).
+- Usa un número aparte (chip nuevo). La atención humana queda en +591 76705942 mediante el enlace wa.me.
+- Para darle IA, se reemplaza `noEntiendo` por una llamada a un modelo con el prompt de la sección 1 (la clave va como secreto de Cloudflare).
+- La versión sin código (WhatsApp Business, con bienvenida, ausencia y respuestas rápidas) está en `marketing/whatsapp/bot-gratis-whatsapp-business.md`.
+
 ## 1. Prompt del bot de WhatsApp (listo para usar)
 Úsalo como «instrucciones del sistema» en la herramienta de bot que elija el dueño (WhatsApp Business API con un proveedor que permita IA, por ejemplo). Actualiza los bloques `[…]` cuando haya datos.
 
