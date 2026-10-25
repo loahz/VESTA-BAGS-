@@ -1,6 +1,14 @@
 # Diseño gráfico (posts, historias, flyers)
 
-## Estilo aprobado: «Vitrina de color» (v2, octubre 2026)
+## v3 «Vitrina Viva» (vigente desde el 25/10/2026)
+Encuesta del dueño: quiere más personalidad, humor real sacado de tendencias (meme aspiracional, formatos de TikTok), collage tipo revista y mockups de tendencia (notas del iPhone, chat, ticket, buscador, pase de abordar). Referencias: Charles & Keith, JW Pei, Coach, Kate Spade, tiendas latinas y revistas.
+- **Cuatro lenguajes:** vitrina de color (catálogo, con precio) · pantalla cotidiana (creativos, sin precio) · collage revista (sin precio) · foto en escena (estudio de color con cartera sola: con precio; casa decorada: sin precio).
+- **Estudio:** pared y piso con curva, sombra de contacto y sombra proyectada, sticker redondo de precio.
+- **Mascota:** solo en el post fijado «Hola, soy Vesta». El dueño dijo que el resto con mascota «se ve de IA y sin personalidad».
+- **Reels:** solo manos y producto, o una amiga del cuello para abajo. 12 ideas con storyboard en `marketing/contenido/v3/`.
+- Filosofía: `marketing/contenido/v3/filosofia-de-diseno.md`. Generador: `marketing/contenido/v3/fuente/gen3.py` (+ `export.cjs` para láminas 1080×1350 y 1080×1920).
+
+## Estilo «Vitrina de color» (v2, octubre 2026)
 El dueño **rechazó** la v1: mascota en todas las láminas, burbujas, emojis como íconos, fotos con degradado oscuro. Le pareció genérica, «de IA», sin color y sin carteras. El estilo vigente es este:
 - **La cartera es la protagonista**: recortada sin fondo, ocupa del 55 al 65 % de la lámina.
 - **Color por colección**: fondo liso del tono de la pieza. Garfield #F7C98B/#7A2E0E · Stitch #C8CDEF/#1E2756 · Hello Kitty #F6D2D5/#A3182A · Toy Story #CFE3F3/#1D4E86 · clásicas en nude, caramelo, dorado o azul grisáceo. Las láminas de marca van en nude #F0E2D6 o marfil, y el cierre en cacao #4E3A30.
