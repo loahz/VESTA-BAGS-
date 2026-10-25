@@ -2,6 +2,12 @@
 
 Redes: **TikTok, Instagram y Facebook**. Cuentas: `[PENDIENTE]`. No inventes @usuarios.
 
+## Preferencias del dueño (aplicar siempre)
+- **Plan semanal**: cada día parte de **1 idea**, y de ella salen **1 Reel**, **1 publicación** (foto o carrusel) y 1 historia. Cada pieza lleva su **red objetivo** (la principal primero).
+- **Sin mostrar caras**: manos, flat lay, producto, siluetas y fotos. Varios Reels se hacen solo con fotos.
+- **La mascota Vesta** aparece unos 3 días por semana (`marketing/recursos/mascota-vesta.png`, sin redibujar).
+- Plantilla y ejemplo: `marketing/contenido/plan-semanal-2-al-8-nov-2026.md`. Series fijas: `marketing/contenido/series-de-contenido.md`.
+
 ## Pilares (en qué proporción publicar)
 | Pilar | % | Ejemplos |
 |---|---|---|
