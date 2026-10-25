@@ -48,3 +48,4 @@ Para publicar en Netlify, sube el contenido de `site/` (o un zip de esa carpeta)
 
 ## Skill de marca
 Toda tarea de VESTA (web, contenido, videos, ventas, bots, diseño, estrategia) usa la skill `.claude/skills/vesta/` (SKILL.md + references/).
+También están instaladas las 52 skills de marketing de Corey Haines (`.claude/skills/`, licencia MIT). Su contexto de marca está en `.agents/product-marketing.md`, y ante cualquier duda manda la skill `vesta`.
