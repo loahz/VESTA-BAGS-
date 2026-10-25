@@ -1,6 +1,6 @@
 # Product Marketing Context — VESTA BAGS
 
-**Document version:** v1
+**Document version:** v2
 **Last updated:** 2026-10-25
 
 > Fuente completa de la marca: skill `.claude/skills/vesta/` (SKILL.md y references/). Si algo aquí contradice esa skill, manda la skill. Todo el contenido se escribe en **español de Bolivia, con tuteo**.
@@ -137,10 +137,11 @@
 *Decisions and tested lessons. Newest first. Keep it to about 20 active entries.*
 | Date | Learning | Evidence | Applies to | Status |
 |------|----------|----------|------------|--------|
-| 2026-10-25 | Al dueño no le gustaron los PDF de carruseles (diseño HTML con fotos del catálogo Tizza). Motivo: [PENDIENTE de preguntar] | Comentario del dueño | Diseño, social | Abierto |
+| 2026-10-25 | Rechazó la v1 de carruseles (mascota en todo, burbujas, emojis, fotos con degradado): «genérica, muy IA, sin color, sin carteras». Aprobado como dirección: estilo «Vitrina de color» (cartera recortada protagonista, color por colección, palabra Bodoni detrás). Solo le gustó la portada «Hola, soy Vesta» | Comentario del dueño | Diseño, social | Activo |
 | 2026-10-25 | Contenido sin mostrar caras; la mascota Vesta en unos 3 días por semana; 1 idea por día da 1 Reel, 1 publicación y 1 historia | Pedido del dueño | Social, video | Activo |
 | 2026-10 | Paleta nude; nada de fondo negro, de la franja de «confianza» ni de diseños cuadrados o con apariencia de IA | Decisión del dueño | Diseño, web | Activo |
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v2 (2026-10-25): Aprendizaje del rechazo de la v1 de carruseles y el estilo nuevo.
 - v1 (2026-10-25): Contexto inicial, armado a partir de la skill Vesta.

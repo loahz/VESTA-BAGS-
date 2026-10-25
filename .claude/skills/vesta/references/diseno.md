@@ -1,5 +1,16 @@
 # Diseño gráfico (posts, historias, flyers)
 
+## Estilo aprobado: «Vitrina de color» (v2, octubre 2026)
+El dueño **rechazó** la v1: mascota en todas las láminas, burbujas, emojis como íconos, fotos con degradado oscuro. Le pareció genérica, «de IA», sin color y sin carteras. El estilo vigente es este:
+- **La cartera es la protagonista**: recortada sin fondo, ocupa del 55 al 65 % de la lámina.
+- **Color por colección**: fondo liso del tono de la pieza. Garfield #F7C98B/#7A2E0E · Stitch #C8CDEF/#1E2756 · Hello Kitty #F6D2D5/#A3182A · Toy Story #CFE3F3/#1D4E86 · clásicas en nude, caramelo, dorado o azul grisáceo. Las láminas de marca van en nude #F0E2D6 o marfil, y el cierre en cacao #4E3A30.
+- **Una palabra grande en Bodoni cursiva** detrás de la cartera, en un tono más oscuro que el fondo (como la portada de la web).
+- **Etiqueta arriba** en Instrument Sans versalita, nombre abajo a la izquierda en Bodoni, precio abajo a la derecha.
+- **Máximo 12 palabras** por lámina. Sin emojis en las láminas.
+- **La mascota solo en la portada «Hola, soy Vesta»** (le gustó). En las demás no va.
+- Ejemplos, PDF y láminas 1080×1350: `marketing/contenido/v2/`. El generador está en `marketing/contenido/v2/fuente/gen2.py` y los recortes en `fuente/cut/`.
+- **Recortes**: `rembg` (modelo isnet-general-use) con los colores originales, rellenando solo huecos pequeños (no el interior de las asas). Ver gen y el historial del repo.
+
 Lee primero `visual.md`.
 
 ## Cómo producir una pieza
