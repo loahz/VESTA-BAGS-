@@ -1,0 +1,86 @@
+"""Pruebas de la página Pedidos a una semana. Uso: python3 build.py && python3 tests/e2e_pedidos.py"""
+import sys, urllib.parse, subprocess, time, pathlib
+from playwright.sync_api import sync_playwright
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+srv = subprocess.Popen([sys.executable, '-m', 'http.server', '8790'], cwd=ROOT / 'site', stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); time.sleep(1)
+R = []
+def ok(n, c, x=''): R.append((n, bool(c))); print('PASS' if c else 'FAIL', n, x)
+SHOTS = ROOT / 'tests/shots'; SHOTS.mkdir(exist_ok=True)
+try:
+  with sync_playwright() as p:
+    b = p.chromium.launch(); ctx = b.new_context(viewport={'width': 1440, 'height': 900}); pg = ctx.new_page()
+    errs, pops, bad = [], [], []
+    pg.on('pageerror', lambda e: errs.append(str(e)))
+    pg.on('console', lambda m: m.type == 'error' and 'ERR_TUNNEL' not in m.text and 'Failed to load resource' not in m.text and errs.append(m.text))
+    pg.on('response', lambda r: r.status >= 400 and 'localhost' in r.url and bad.append(r.url))
+    ctx.on('page', lambda np: (pops.append(np.url), np.close()))
+    # Enlace desde la tienda
+    pg.goto('http://localhost:8790/index.html'); pg.wait_for_selector('#grid .card')
+    ok('tienda: enlace en cabecera', pg.is_visible('header .enc-link'))
+    ok('tienda: la tienda original sigue igual (22 productos)', pg.locator('#grid .card').count() == 22)
+    pg.click('header .enc-link'); pg.wait_for_selector('#encGrid .enc-page')
+    ok('abre Pedidos a una semana', 'pedidos.html' in pg.url and pg.text_content('#encTitle') == 'Pedidos a una semana')
+    ok('catálogo Octubre completo: 264 páginas', pg.locator('#encGrid .enc-page').count() == 264)
+    pg.screenshot(path=SHOTS / 'enc-d.png')
+    pg.click('#encChips [data-ch="Maletas"]'); ok('sección Maletas', pg.locator('#encGrid .enc-page').count() == 18 and 'Maletas' in pg.text_content('#encResults'))
+    pg.click('.enc-tab[data-cat=licencias]'); ok('catálogo Licencias completo: 64 páginas', pg.locator('#encGrid .enc-page').count() == 64)
+    pg.click('#encChips [data-ch="Stitch"]'); ok('sección Stitch', pg.locator('#encGrid .enc-page').count() == 7)
+    pg.fill('#encQ', '2141'); ok('buscar por código', pg.locator('#encGrid .enc-page').count() == 2, pg.text_content('#encResults'))
+    pg.fill('#encQ', '99999'); ok('código inexistente: estado vacío', pg.locator('#encGrid .empty').count() == 1)
+    pg.click('[data-clearq]'); pg.click('#encChips [data-ch=""]')
+    # visor
+    pg.click('#encGrid .enc-page:nth-child(16) [data-view]'); pg.wait_for_selector('#viewer[open]')
+    ok('visor abre la página', 'página 16' in pg.text_content('#vTitle') and 'Garfield' in pg.text_content('#vSub'))
+    pg.keyboard.press('ArrowRight'); ok('visor: siguiente con teclado', 'página 17' in pg.text_content('#vTitle'))
+    ok('visor: muestra código y precio', '2141' in pg.text_content('#vPanel') and 'Bs 810' in pg.text_content('#vPanel'))
+    pg.fill('#vNote', 'verde'); pg.click('[data-vadd]'); pg.wait_for_timeout(200)
+    ok('encargar desde el visor con detalle', pg.evaluate('VESTA_PEDIDOS.List.items')[0] == {'cat': 'licencias', 'n': 17, 'qty': 1, 'note': 'verde'})
+    pg.screenshot(path=SHOTS / 'enc-viewer.png')
+    pg.keyboard.press('Escape')
+    pg.click('.enc-tab[data-cat=octubre]'); pg.click('#encGrid .enc-page:nth-child(20) [data-add]')
+    ok('encargar desde la cuadrícula', pg.text_content('#encCount') == '2' and 'En tu encargo' in pg.text_content('#encGrid .enc-page:nth-child(20)'))
+    # lista
+    pg.click('#encBtn'); pg.wait_for_selector('#encSheet[open]')
+    ok('lista con 2 páginas', pg.locator('#encBody .enc-line').count() == 2)
+    pg.click('#encBody [data-q="1"][data-k="1"]'); ok('cantidad', pg.evaluate('VESTA_PEDIDOS.List.items[1].qty') == 2)
+    pg.click('[data-sstep="2"]'); pg.click('#encWa'); pg.wait_for_timeout(300)
+    ok('valida nombre y ciudad', not pops and pg.get_attribute('#eName', 'aria-invalid') == 'true')
+    pg.fill('#eName', 'Ana'); pg.click('#encForm [data-city="La Paz"]')
+    href = pg.get_attribute('#encWa', 'href'); m = urllib.parse.parse_qs(urllib.parse.urlparse(href).query)['text'][0]
+    ok('WhatsApp al número correcto', href.startswith('https://wa.me/59176705942?text='))
+    ok('mensaje del encargo', all(x in m for x in ['pedido a una semana', '1. Catálogo Licencias, página 17 (Garfield)', 'Código: 2141', 'Precio de catálogo: Bs 810', 'Detalle: verde', '2. Catálogo Octubre, página 20 (Carteras)', 'Precio de catálogo: Bs 730', 'Cantidad: 2', 'Nombre: Ana', 'Ciudad: La Paz', 'disponibilidad', 'Hola, equipo VESTA.', 'adelanto del 50 %']), m)
+    pg.click('#encWa'); pg.wait_for_timeout(900)
+    ok('abre WhatsApp y vacía la lista', len(pops) == 1 and pg.evaluate('VESTA_PEDIDOS.List.items.length') == 0)
+    pg.click('#toastAct'); ok('recuperar lista', pg.evaluate('VESTA_PEDIDOS.List.items.length') == 2)
+    pg.reload(); pg.wait_for_selector('#encGrid .enc-page')
+    ok('la lista persiste al recargar', pg.text_content('#encCount') == '3')
+    pg.goto('http://localhost:8790/index.html'); pg.wait_for_selector('#grid .card')
+    ok('el carrito de la tienda no se toca', pg.evaluate('VESTA.Cart.items.length') == 0)
+    # móvil
+    for w in [320, 375, 430, 768, 1024]:
+        pg.set_viewport_size({'width': w, 'height': 820}); pg.goto('http://localhost:8790/pedidos.html'); pg.wait_for_selector('#encGrid .enc-page'); pg.wait_for_timeout(200)
+        ok(f'sin desborde a {w}px', pg.evaluate('document.documentElement.scrollWidth') <= w)
+    pg.set_viewport_size({'width': 390, 'height': 844}); pg.wait_for_timeout(300); pg.screenshot(path=SHOTS / 'enc-m.png')
+    pg.click('#encGrid .enc-page:nth-child(2) [data-view]'); pg.wait_for_timeout(500); pg.screenshot(path=SHOTS / 'enc-m-viewer.png')
+    ok('visor móvil: botón visible', pg.is_visible('[data-vadd]'))
+    pg.keyboard.press('Escape')
+    pg.goto('http://localhost:8790/index.html'); pg.click('#menuBtn'); ok('menú móvil con el enlace', pg.is_visible('#mmenu a[href="pedidos.html"]'))
+    # --- Regresiones de la revisión independiente ---
+    pg.set_viewport_size({'width': 1440, 'height': 900}); pg.goto('http://localhost:8790/pedidos.html'); pg.wait_for_selector('#encGrid .enc-page')
+    pg.evaluate("localStorage.removeItem('vesta-encargo-v1')"); pg.reload(); pg.wait_for_selector('#encGrid .enc-page')
+    pg.click('#encGrid .enc-page:nth-child(5) [data-view]'); pg.fill('#vNote', 'negro'); pg.click('[data-vadd]'); pg.fill('#vNote', 'rosado'); pg.click('[data-vadd]'); pg.wait_for_timeout(300)
+    it = pg.evaluate('VESTA_PEDIDOS.List.items')
+    ok('rev #6: cada color es una línea propia', len(it) == 2 and {i['note'] for i in it} == {'negro', 'rosado'}, str(it))
+    ok('rev #1: aviso visible sobre el visor', pg.evaluate("document.querySelector('#toast').closest('dialog') === document.querySelector('#viewer')"))
+    pg.click('#toastAct'); pg.wait_for_timeout(300); ok('rev #1: «Ver encargo» desde el visor funciona', pg.evaluate("document.querySelector('#encSheet').open"))
+    pg.keyboard.press('Escape')
+    ok('rev #11: miniaturas livianas en la cuadrícula', '/t/p' in pg.get_attribute('#encGrid .enc-page:nth-child(3) img', 'src'))
+    ok('rev: la portada del catálogo no se encarga', pg.locator('#encGrid .enc-page:nth-child(1) [data-add]').count() == 0)
+    pg.fill('#encQ', 'garfield'); ok('rev: búsqueda con letras explica qué escribir', 'solo el número' in pg.text_content('#encResults'))
+    pg.fill('#encQ', '')
+    ok('todas las imágenes existen', not bad, str(bad[:3]))
+    ok('sin errores de JavaScript', not errs, '; '.join(errs)[:300])
+    b.close()
+finally:
+  srv.terminate()
+f = [r for r in R if not r[1]]; print(f'\n{len(R) - len(f)}/{len(R)} pasaron')

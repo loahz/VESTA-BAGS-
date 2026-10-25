@@ -1,0 +1,83 @@
+<div class="announce" id="announce"></div>
+
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="textlink back-store" href="index.html">Volver a la tienda</a>
+    <a class="brand" href="index.html" aria-label="VESTA BAGS, ir a la tienda"><img src="assets/logo-dark.png" alt="VESTA BAGS" width="611" height="293"></a>
+    <div class="tools">
+      <button class="enc-btn" id="encBtn" type="button" aria-haspopup="dialog">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        <span class="enc-btn__label">Mi encargo</span>
+        <span class="count" id="encCount" data-n="0">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Presentación -->
+  <section class="enc-hero stone" aria-labelledby="encTitle">
+    <div class="wrap enc-hero__in">
+      <div class="enc-hero__copy">
+        <h1 id="encTitle"></h1>
+        <p class="enc-hero__lead" id="encIntro"></p>
+        <ol class="enc-steps" id="encSteps"></ol>
+      </div>
+      <div class="enc-vesta" aria-hidden="true">
+        <p class="enc-vesta__bubble" id="encVesta"></p>
+        <span class="enc-vesta__mascot">{{MASCOT_SVG}}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogos -->
+  <section class="light enc-cats" aria-label="Catálogos">
+    <div class="wrap">
+      <div class="enc-switch" id="encSwitch" role="group" aria-label="Elige un catálogo"></div>
+
+      <div class="enc-tools">
+        <div class="enc-chips" id="encChips" role="group" aria-label="Secciones del catálogo"></div>
+        <div class="search enc-search" role="search">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+          <label class="sr" for="encQ">Buscar por código</label>
+          <input id="encQ" type="search" inputmode="numeric" placeholder="Buscar por código, ej. 2004" autocomplete="off">
+        </div>
+      </div>
+      <p class="muted num enc-count" id="encResults" aria-live="polite"></p>
+      <div class="enc-grid" id="encGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__bottom" style="margin-top:0;border-top:0;padding-top:0">
+      <span>© <span id="year"></span> VESTA BAGS, Bolivia. Catálogos de Tizza.</span>
+      <span><a href="index.html">Volver a la tienda</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Visor de página -->
+<dialog class="enc-viewer light" id="viewer" aria-labelledby="vTitle">
+  <div class="enc-viewer__bar">
+    <div><b id="vTitle"></b><span id="vSub"></span></div>
+    <button class="iconbtn" data-close aria-label="Cerrar visor"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="enc-viewer__stage" id="vStage">
+    <button class="iconbtn enc-nav enc-nav--prev" id="vPrev" aria-label="Página anterior"><svg class="ico" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <img id="vImg" alt="" width="1000" height="1000">
+    <button class="iconbtn enc-nav enc-nav--next" id="vNext" aria-label="Página siguiente"><svg class="ico" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+  <div class="enc-viewer__panel" id="vPanel"></div>
+</dialog>
+
+<!-- Lista de encargo -->
+<dialog class="sheet light" id="encSheet" aria-labelledby="encSheetTitle">
+  <div class="sheet__head"><h2 id="encSheetTitle">Mi encargo</h2>
+    <button class="iconbtn" data-close aria-label="Cerrar encargo"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="sheet__body" id="encBody"></div>
+  <div class="sheet__foot" id="encFoot"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button class="btn" id="toastAct" type="button" hidden></button></div>
