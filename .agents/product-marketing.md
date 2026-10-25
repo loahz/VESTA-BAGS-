@@ -137,6 +137,7 @@
 *Decisions and tested lessons. Newest first. Keep it to about 20 active entries.*
 | Date | Learning | Evidence | Applies to | Status |
 |------|----------|----------|------------|--------|
+| 2026-10-25 | No le gustó el feed de la v3. Se le mandaron 6 propuestas de feed para elegir estilo: 01 Vitrina Viva 2.0, 02 Vesta protagonista, 03 Maison VESTA (lujo formal), 04 Lujo con humor, 05 Vesta de lujo, 06 Vitrina Paceña. Pendiente su elección | Comentario del dueño | Diseño, social | Abierto |
 | 2026-10-25 | v2 (vitrina de color) gustó por el color, pero se sintió «básica». Encuesta: humor real de tendencias (meme aspiracional tipo Porsche, TikTok), collage revista y mockups de tendencia; sin stock todavía; Reels solo manos o una amiga; meta: seguidores + ventas; 5 a 8 h por semana; precio solo en catálogo o cartera sola. Se hizo la v3 «Vitrina Viva» | Encuesta del dueño | Diseño, social, video | Activo |
 | 2026-10-25 | Rechazó la v1 de carruseles (mascota en todo, burbujas, emojis, fotos con degradado): «genérica, muy IA, sin color, sin carteras». Aprobado como dirección: estilo «Vitrina de color» (cartera recortada protagonista, color por colección, palabra Bodoni detrás). Solo le gustó la portada «Hola, soy Vesta» | Comentario del dueño | Diseño, social | Activo |
 | 2026-10-25 | Contenido sin mostrar caras; la mascota Vesta en unos 3 días por semana; 1 idea por día da 1 Reel, 1 publicación y 1 historia | Pedido del dueño | Social, video | Activo |

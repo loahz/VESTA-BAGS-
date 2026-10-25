@@ -90,7 +90,7 @@ body{font-family:var(--fu);color:var(--ink);background:var(--ivory);-webkit-prin
 .notes-ui li{list-style:none;display:flex;gap:u6;align-items:center;font-size:u9;padding:u45 u14;border-bottom:1px solid #F0F0F2}
 .notes-ui li i{width:u9;height:u9;border-radius:50%;border:1.4px solid #C7C7CC;flex:none;display:grid;place-items:center;font-style:normal;font-size:u6;color:#fff}
 .notes-ui li.done i{background:#E0A100;border-color:#E0A100}
-.notes-ui li.done span{text-decoration:line-through;color:#8E8E93}
+.notes-ui li.done span{font-weight:600}
 /* WhatsApp */
 .wa{position:absolute;inset:0;background:#EFE7DE;font-family:'Instrument Sans',sans-serif}
 .wa .top{background:#F7F5F2;display:flex;gap:u6;align-items:center;padding:u10 u10 u6;font-size:u8;font-weight:600;color:#111;border-bottom:1px solid #E2DDD6}
