@@ -15,8 +15,8 @@ CONTEXTO DEL NEGOCIO
 - Lee primero mi carpeta de marca y marketing (C:\Users\Casti\Downloads\VESTA\01_marketing\, manual de marca, calendario de 42 posts si existe) y el calendario de 14 días que ya hicimos, guardado en: C:\Users\Casti\Downloads\VESTA\01_marketing\actual\calendario-14-dias.________ (si no está ahí, intenta abrir https://claude.ai/artifact/9HeNjrSMbSbvfs2kXbueNm; si no puedes, dímelo y sigue). Usa la skill `vesta` para el tono y la identidad de marca: voz neutra ("te ayudamos", nunca "asesora").
 
 SKILLS (HACER ANTES DE EMPEZAR)
-1. Lista las skills que tienes disponibles. Busca la skill de video que instalé (puede llamarse "watch", "watching-videos", "watch-skill" o parecido) y la skill de PDF. Dime los nombres exactos que encontraste.
-2. USA la skill de video/watch para ver cada video: sácale el audio transcrito, el texto en pantalla, los cuadros clave (gancho de los primeros 2 segundos, cortes, final) y la duración. Si esa skill no puede abrir un link, abre el video en el navegador, deja que se reproduzca y toma capturas a mano.
+1. Lista las skills y herramientas MCP que tienes disponibles. Busca la herramienta de video que instalé (servidor MCP "watch-skill", con herramientas como watch_video y ask_video; puede haber también skills llamadas "watch" o "watching-videos") y la skill de PDF. Dime los nombres exactos que encontraste.
+2. USA watch-skill para ver cada video: sácale el audio transcrito, el texto en pantalla, los cuadros clave (gancho de los primeros 2 segundos, cortes, final) y la duración. Si esa skill no puede abrir un link, abre el video en el navegador, deja que se reproduzca y toma capturas a mano.
 3. Usa la skill de PDF para armar los PDFs finales y la skill `vesta` para cada texto que escribas para mi marca.
 4. Si alguna skill no está disponible, dímelo en una línea y sigue con el navegador y código. No instales nada sin avisarme.
 
