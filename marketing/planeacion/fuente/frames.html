@@ -1,0 +1,173 @@
+<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+@page { size: 297mm 210mm; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --ink:#221B18; --ink2:#4B3B33; --mut:#8A776B; --cacao:#7A4B3A; --deep:#4E3A30;
+        --nude:#F3E9E1; --line:#EEE4DC; }
+html, body { background:#FFFFFF; }
+body { font-family: "Comfortaa", "Varela Round", Arial, sans-serif; color: var(--ink);
+       -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width:297mm; height:210mm; padding:13mm 16mm 11mm; position:relative; overflow:hidden;
+        break-after: page; background:#FFFFFF; }
+.page:last-child { break-after: auto; }
+.top { display:flex; justify-content:space-between; align-items:center; font-size:7.5pt;
+       color:var(--mut); letter-spacing:.14em; text-transform:uppercase; margin-bottom:6mm; }
+.top img { height:6mm; }
+h1 { font-weight:700; font-size:40pt; line-height:1.02; letter-spacing:-.02em; }
+h2 { font-weight:700; font-size:22pt; letter-spacing:-.01em; margin-bottom:2mm; }
+.lead { font-size:11pt; color:var(--ink2); line-height:1.55; max-width:150mm; }
+.kick { font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cacao); font-weight:700; margin-bottom:2mm; }
+.foot { position:absolute; left:16mm; right:16mm; bottom:7mm; display:flex; justify-content:space-between;
+        font-size:7pt; color:var(--mut); }
+.chip { display:inline-flex; align-items:center; justify-content:center; width:6.2mm; height:6.2mm;
+        border-radius:999px; font-weight:700; font-size:8pt; flex:none; }
+.chip.big { width:11mm; height:11mm; font-size:14pt; }
+.tag { display:inline-block; font-size:6.8pt; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+       padding:.8mm 2.4mm; border-radius:999px; border:1px solid var(--cacao); color:var(--cacao); }
+.tag.fill { background:var(--cacao); color:#fff; }
+.tag.soft { background:var(--nude); border-color:var(--nude); color:var(--deep); }
+
+/* portada */
+.cover { display:grid; grid-template-columns: 1.15fr 1fr; gap:10mm; height:100%; align-items:center; }
+.cover .arch { height:172mm; border-radius:90mm 90mm 8mm 8mm; background:var(--nude); position:relative;
+               display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
+.cover .arch img.p { width:88%; mix-blend-mode:multiply; margin-bottom:6mm; }
+.cover .arch img.m { position:absolute; width:30mm; right:8mm; top:30mm; }
+.cover .dates { display:flex; gap:3mm; margin:7mm 0 8mm; flex-wrap:wrap; }
+.cover .dates span { font-size:9pt; padding:2mm 4mm; border-radius:999px; background:var(--nude); }
+.cover .dates span.on { background:var(--cacao); color:#fff; }
+
+/* bases */
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; }
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; }
+.grid5 { display:grid; grid-template-columns:repeat(5,1fr); gap:3.5mm; }
+.card { background:var(--nude); border-radius:6mm; padding:5mm; }
+.card.w { background:#fff; border:1px solid var(--line); }
+.card.d { background:var(--deep); color:#fff; }
+.card h3 { font-size:10.5pt; font-weight:700; margin-bottom:2mm; }
+.card p, .card li { font-size:9.6pt; line-height:1.55; color:inherit; }
+.card ul { list-style:none; }
+.card li { padding-left:4mm; position:relative; margin-bottom:1.3mm; }
+.card li:before { content:""; position:absolute; left:0; top:1.6mm; width:1.6mm; height:1.6mm; border-radius:99px; background:var(--cacao); }
+.card.d li:before { background:#E6D0BE; }
+.num { font-size:30pt; font-weight:700; color:var(--cacao); line-height:1; }
+.card.d .num { color:#F0E2D6; }
+.rule { display:flex; gap:3mm; align-items:flex-start; }
+.rule b.n { flex:none; width:7mm; height:7mm; border-radius:99px; background:var(--cacao); color:#fff;
+            display:flex; align-items:center; justify-content:center; font-size:8.5pt; }
+.rule p { font-size:10pt; line-height:1.5; }
+
+/* formatos */
+.fmt { border-radius:6mm; padding:5mm; min-height:54mm; position:relative; }
+.fmt .l { font-size:22pt; font-weight:700; line-height:1; }
+.fmt .t { font-size:11.5pt; font-weight:700; margin:2.5mm 0 1.2mm; }
+.fmt .s { font-size:9pt; line-height:1.45; opacity:.85; }
+.fmt .new { position:absolute; top:4mm; right:4mm; font-size:6.5pt; font-weight:700; letter-spacing:.08em;
+            text-transform:uppercase; padding:.6mm 2mm; border-radius:99px; background:#fff; color:var(--cacao); }
+.fmt img.mm { position:absolute; right:3mm; bottom:2mm; width:12mm; }
+
+/* mapa del mes */
+.cal { display:grid; grid-template-columns:repeat(7,1fr); gap:2.2mm; margin-top:4mm; }
+.cal .h { font-size:7.5pt; color:var(--mut); text-align:center; letter-spacing:.1em; text-transform:uppercase; padding-bottom:1mm; }
+.cal .d { border-radius:3.5mm; height:23.5mm; padding:2mm 2.4mm; position:relative; font-size:7pt; }
+.cal .d .n { font-size:11pt; font-weight:700; }
+.cal .d .ch { display:flex; gap:1mm; position:absolute; left:2.4mm; bottom:2mm; }
+.cal .d .ch .chip { width:5mm; height:5mm; font-size:6.5pt; }
+.cal .d .mk { position:absolute; right:2mm; top:2.2mm; font-size:6pt; font-weight:700; color:#fff;
+              background:var(--cacao); border-radius:99px; padding:.5mm 1.8mm; }
+.cal .d.x { background:transparent; }
+.legend { display:flex; gap:5mm; margin-top:4mm; font-size:8pt; align-items:center; flex-wrap:wrap; }
+.legend i { display:inline-block; width:4mm; height:4mm; border-radius:99px; margin-right:1.5mm; vertical-align:-1mm; }
+
+/* ventas */
+.funnel { display:flex; align-items:stretch; gap:2.4mm; margin:3mm 0 5mm; }
+.funnel .st { flex:1; border-radius:5mm; padding:3.5mm 3mm; text-align:center; font-size:8pt; line-height:1.4; }
+.funnel .st b { display:block; font-size:9.5pt; margin-bottom:1mm; }
+.funnel .ar { align-self:center; color:var(--cacao); font-size:12pt; }
+.time { display:grid; grid-template-columns:17mm 1fr; gap:2.4mm 3mm; font-size:9.4pt; line-height:1.4; }
+.time b { color:var(--cacao); }
+.msg { background:#fff; border:1px solid var(--line); border-radius:5mm 5mm 5mm 1.5mm; padding:3mm 3.5mm;
+       font-size:9.3pt; line-height:1.55; margin-bottom:3.5mm; }
+.msg small { display:block; font-size:6.8pt; letter-spacing:.1em; text-transform:uppercase; color:var(--cacao); font-weight:700; margin-bottom:1mm; }
+
+/* día a día */
+.days { width:100%; border-collapse:separate; border-spacing:0 1.6mm; margin-top:1mm; }
+.days th { font-size:7pt; color:var(--mut); letter-spacing:.12em; text-transform:uppercase; text-align:left;
+           font-weight:700; padding:0 2.5mm; }
+.days td { background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+           padding:2.1mm 2.5mm; vertical-align:middle; font-size:8.3pt; }
+.days td:first-child { border-left:1px solid var(--line); border-radius:4mm 0 0 4mm; width:25mm; }
+.days td:last-child { border-right:1px solid var(--line); border-radius:0 4mm 4mm 0; width:64mm; color:var(--ink2); font-size:7.9pt; }
+.days td.dt b { display:block; font-size:10pt; }
+.days td.dt span { font-size:7pt; color:var(--mut); }
+.days tr.hot td { background:#FBF4EF; border-color:#EBD9CC; }
+.vid { display:flex; gap:2.2mm; align-items:center; }
+.vid div b { display:block; font-size:8.6pt; line-height:1.3; }
+.vid div span { font-size:7.2pt; color:var(--mut); line-height:1.3; }
+.mark { display:table; font-size:6.4pt; font-weight:700; background:var(--cacao); color:#fff; border-radius:99px; padding:.4mm 1.8mm;
+        margin-top:1mm; white-space:nowrap; letter-spacing:.04em; }
+.days.roomy td { padding:4.1mm 3mm; }
+.days:not(.roomy) .mark { display:inline-block; margin:0 0 0 1mm; }
+.days:not(.roomy) td { padding:1.8mm 2.5mm; }
+.days td.dt span.mark { color:#fff; font-size:6.4pt; }
+.days.roomy .vid div b { font-size:10pt; }
+.days.roomy .vid div span { font-size:8pt; }
+.days.roomy td:last-child { font-size:9pt; }
+.days.roomy .chip { width:7.4mm; height:7.4mm; font-size:9pt; }
+.phase-h { display:flex; align-items:baseline; gap:4mm; }
+.phase-h .pill { font-size:8pt; padding:1.2mm 3.5mm; border-radius:99px; color:var(--deep); font-weight:700; }
+
+/* teléfono */
+.phone { width:31mm; height:60mm; border-radius:5.5mm; background:var(--deep); padding:1.3mm; flex:none;
+         box-shadow: 0 2mm 5mm rgba(78,58,48,.16); }
+.scr { width:100%; height:100%; border-radius:4.4mm; overflow:hidden; position:relative; }
+.scr img.prod { position:absolute; left:6%; top:16%; width:88%; mix-blend-mode:multiply; }
+.scr .two { position:absolute; left:3%; right:3%; top:26%; display:flex; gap:2%; }
+.scr .two img { width:49%; mix-blend-mode:multiply; }
+.ost { position:absolute; left:8%; right:8%; top:9%; text-align:center; font-weight:700; font-size:7.6pt; line-height:1.25;
+       color:var(--ink); background:rgba(255,255,255,.92); border-radius:2.4mm; padding:1.4mm 1.6mm; }
+.ost2 { position:absolute; left:10%; right:22%; bottom:17%; text-align:center; font-size:6pt; font-weight:700;
+        color:#fff; background:rgba(78,58,48,.82); border-radius:99px; padding:.9mm 1.4mm; }
+.ui { position:absolute; right:1.6mm; top:44%; display:flex; flex-direction:column; gap:1.8mm; }
+.ui .ic { width:3.6mm; height:3.6mm; border-radius:99px; background:rgba(255,255,255,.9); box-shadow:0 0 0 .3mm rgba(78,58,48,.15); }
+.ui .ic.heart { background:#E7B3C1; }
+.cap { position:absolute; left:2.2mm; bottom:2.4mm; right:7mm; font-size:4.9pt; line-height:1.35; color:var(--ink); }
+.cap b { display:block; font-size:5.4pt; }
+.scr.end { background:var(--deep); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.5mm; }
+.scr.end .mascot { width:15mm; }
+.scr.end .lw { width:16mm; }
+.scr.end .endt { color:#fff; font-size:7pt; font-weight:700; text-align:center; }
+.scr.end .endw { color:#E6D0BE; font-size:5.4pt; }
+.box { position:absolute; left:20%; right:20%; bottom:20%; height:28%; background:#E6D0BE; border-radius:1.6mm; }
+.box.solo { top:34%; bottom:auto; height:32%; }
+.box .lid { position:absolute; left:-6%; right:-6%; top:-14%; height:26%; background:#D9BDA6; border-radius:1.4mm; }
+.box .rib { position:absolute; left:44%; width:12%; top:-14%; bottom:0; background:var(--cacao); }
+.chat { position:absolute; left:6%; right:6%; top:26%; display:flex; flex-direction:column; gap:2mm; }
+.chat .b { font-size:6.2pt; line-height:1.35; padding:1.6mm 2mm; border-radius:2.4mm; max-width:85%; }
+.chat .in { background:#fff; align-self:flex-start; }
+.chat .out { background:#E3EFD9; align-self:flex-end; }
+.mascot2 { position:absolute; width:13mm; left:50%; transform:translateX(-50%); top:25%; }
+.mini { position:absolute; left:8%; right:8%; bottom:20%; display:flex; gap:4%; }
+.mini img { width:48%; mix-blend-mode:multiply; background:#fff; border-radius:1.5mm; }
+
+/* videos estrella */
+.star { display:grid; grid-template-columns: auto 1fr; gap:7mm; height:79mm; padding:4mm 0; border-bottom:1px solid var(--line); }
+.star:last-child { border-bottom:0; }
+.frames { display:flex; gap:2.6mm; }
+.frames .fw { display:flex; flex-direction:column; align-items:center; gap:1.4mm; }
+.frames .fw small { font-size:6.6pt; color:var(--mut); }
+.sinfo h3 { font-size:13pt; font-weight:700; margin:1mm 0 2.5mm; display:flex; gap:2.5mm; align-items:center; }
+.sinfo ol { list-style:none; counter-reset:s; margin-bottom:2.5mm; }
+.sinfo ol li { counter-increment:s; font-size:8.3pt; line-height:1.45; padding-left:6.5mm; position:relative; margin-bottom:1.1mm; }
+.sinfo ol li:before { content:counter(s); position:absolute; left:0; top:.2mm; width:4.4mm; height:4.4mm; border-radius:99px;
+                      background:var(--nude); color:var(--cacao); font-size:6.8pt; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.facts { display:grid; grid-template-columns: 1fr 1fr; gap:2mm 5mm; font-size:7.8pt; line-height:1.4; }
+.facts div small { display:block; font-size:6.4pt; letter-spacing:.1em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:.4mm; }
+.facts a { color:var(--cacao); text-decoration:none; }
+.est { font-weight:700; color:var(--cacao); font-size:10pt; }
+
+/* medir */
+.score { width:100%; border-collapse:collapse; font-size:8.3pt; margin-top:3mm; }
+.score th { text-align:left; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; color:var(--mut); padding:2mm; border-bottom:1.5px solid var(--line); }
+.score td { padding:3.6mm 2mm; font-size:9.2pt; border-bottom:1px solid var(--line); }
+.score td.blank { color:#D9C9BC; }
+.gf{display:inline-block;padding:4mm;background:#fff;zoom:3}</style></head><body><div class="gf" id="regalo-yo-0"><div class="phone "><div class="scr" style="background:#F7EDE6"><img class="prod" style="transform:scale(0.55);transform-origin:50% 50%" src="img/2128-1.jpg"><div class="ost">¿Qué quieres de regalo?</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="regalo-yo-1"><div class="phone "><div class="scr" style="background:#F7E3E8"><img class="prod" style="transform:scale(1.0);transform-origin:50% 50%" src="img/2128-1.jpg"><div class="ost">Yo:</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="regalo-yo-2"><div class="phone "><div class="scr" style="background:#F7E3E8"><img class="prod" style="transform:scale(2.1);transform-origin:60% 62%" src="img/2128-1.jpg"><div class="ost2">Mafalda 2128</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="regalo-yo-3"><div class="phone "><div class="scr end"><img class="mascot" src="img/mascota-vesta.png"><img class="lw" src="img/logo-white.png"><div class="endt">Compra en Vesta Bags</div><div class="endw">Escríbenos por WhatsApp</div><div class="snow"></div></div></div></div><div class="gf" id="caja-regalo-0"><div class="phone "><div class="scr" style="background:#FFFFFF"><div class="box solo"><div class="lid"></div><div class="rib"></div></div><div class="ost">Abre conmigo</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="caja-regalo-1"><div class="phone "><div class="scr" style="background:#FFFFFF"><img class="prod" style="transform:scale(0.5);transform-origin:50% 100%" src="img/2122-1.jpg"><div class="box"><div class="lid"></div><div class="rib"></div></div><div class="ost2">shhh… papel</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="caja-regalo-2"><div class="phone "><div class="scr" style="background:#F6EFE8"><img class="prod" style="transform:scale(1.0);transform-origin:50% 50%" src="img/2122-1.jpg"><div class="ost">Para ti</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="caja-regalo-3"><div class="phone "><div class="scr end"><img class="mascot" src="img/mascota-vesta.png"><img class="lw" src="img/logo-white.png"><div class="endt">Compra en Vesta Bags</div><div class="endw">Escríbenos por WhatsApp</div><div class="snow"></div></div></div></div><div class="gf" id="colgada-0"><div class="phone "><div class="scr" style="background:#FFFFFF"><img class="prod" style="transform:scale(0.9);transform-origin:50% 50%" src="img/2141-1.jpg"><div class="ost">Garfield, pero elegante</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="colgada-1"><div class="phone "><div class="scr" style="background:#FFFFFF"><img class="prod" style="transform:scale(0.9);transform-origin:50% 50%" src="img/2141-2.jpg"><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="colgada-2"><div class="phone "><div class="scr" style="background:#FFFFFF"><img class="prod" style="transform:scale(2.4);transform-origin:30% 40%" src="img/2141-1.jpg"><div class="ost2">el dije ✨</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="colgada-3"><div class="phone "><div class="scr end"><img class="mascot" src="img/mascota-vesta.png"><img class="lw" src="img/logo-white.png"><div class="endt">Compra en Vesta Bags</div><div class="endw">Escríbenos por WhatsApp</div><div class="snow"></div></div></div></div><div class="gf" id="por-dentro-0"><div class="phone "><div class="scr" style="background:#F4EEE6"><img class="prod" style="transform:scale(0.8);transform-origin:50% 50%" src="img/2144-1.jpg"><div class="ost">¿Le entra todo?</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="por-dentro-1"><div class="phone "><div class="scr" style="background:#F4EEE6"><img class="prod" style="transform:scale(0.8);transform-origin:50% 50%" src="img/2133-1.jpg"><div class="ost2">billetera ✓ celular ✓ labial ✓</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="por-dentro-2"><div class="phone "><div class="scr" style="background:#F4EEE6"><img class="prod" style="transform:scale(1.0);transform-origin:50% 50%" src="img/2144-1.jpg"><div class="ost">Sí, y sobra</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="por-dentro-3"><div class="phone "><div class="scr end"><img class="mascot" src="img/mascota-vesta.png"><img class="lw" src="img/logo-white.png"><div class="endt">Compra en Vesta Bags</div><div class="endw">Escríbenos por WhatsApp</div><div class="snow"></div></div></div></div><div class="gf" id="rosado-celeste-0"><div class="phone "><div class="scr" style="background:#FFFFFF"><div class="two"><img src="img/2128-1.jpg"><img src="img/2128-2.jpg"></div><div class="ost">¿Rosado o celeste?</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="rosado-celeste-1"><div class="phone "><div class="scr" style="background:#F8E2E8"><img class="prod" style="transform:scale(1.0);transform-origin:50% 50%" src="img/2128-1.jpg"><div class="ost2">rosado</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="rosado-celeste-2"><div class="phone "><div class="scr" style="background:#E2EDF6"><img class="prod" style="transform:scale(1.0);transform-origin:50% 50%" src="img/2128-2.jpg"><div class="ost2">celeste</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="rosado-celeste-3"><div class="phone "><div class="scr end"><img class="mascot" src="img/mascota-vesta.png"><img class="lw" src="img/logo-white.png"><div class="endt">Compra en Vesta Bags</div><div class="endw">Escríbenos por WhatsApp</div><div class="snow"></div></div></div></div><div class="gf" id="pagas-al-recibir-0"><div class="phone "><div class="scr" style="background:#EFE8E1"><div class="chat"><div class="b in">¿Puedo pagar al recibir?</div><div class="b out">Sí 🤍 En La Paz pagas cuando te la entregamos</div></div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="pagas-al-recibir-1"><div class="phone "><div class="scr" style="background:#FFFFFF"><img class="prod" style="transform:scale(0.9);transform-origin:50% 50%" src="img/2125-1.jpg"><div class="ost">Así de simple</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="pagas-al-recibir-2"><div class="phone "><div class="scr" style="background:#FFFFFF"><img class="prod" style="transform:scale(1.7);transform-origin:50% 70%" src="img/2125-1.jpg"><div class="ost2">QR · transferencia · efectivo</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div></div><div class="gf" id="pagas-al-recibir-3"><div class="phone "><div class="scr end"><img class="mascot" src="img/mascota-vesta.png"><img class="lw" src="img/logo-white.png"><div class="endt">Compra en Vesta Bags</div><div class="endw">Escríbenos por WhatsApp</div><div class="snow"></div></div></div></div></body></html>
