@@ -1,0 +1,330 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Plantilla CapCut VESTA</title><link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+@page { size: 297mm 210mm; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --ink:#221B18; --ink2:#4B3B33; --mut:#8A776B; --cacao:#7A4B3A; --deep:#4E3A30;
+        --nude:#F3E9E1; --line:#EEE4DC; }
+html, body { background:#FFFFFF; }
+body { font-family: "Comfortaa", "Varela Round", Arial, sans-serif; color: var(--ink);
+       -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width:297mm; height:210mm; padding:13mm 16mm 11mm; position:relative; overflow:hidden;
+        break-after: page; background:#FFFFFF; }
+.page:last-child { break-after: auto; }
+.top { display:flex; justify-content:space-between; align-items:center; font-size:7.5pt;
+       color:var(--mut); letter-spacing:.14em; text-transform:uppercase; margin-bottom:6mm; }
+.top img { height:6mm; }
+h1 { font-weight:700; font-size:40pt; line-height:1.02; letter-spacing:-.02em; }
+h2 { font-weight:700; font-size:22pt; letter-spacing:-.01em; margin-bottom:2mm; }
+.lead { font-size:11pt; color:var(--ink2); line-height:1.55; max-width:150mm; }
+.kick { font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cacao); font-weight:700; margin-bottom:2mm; }
+.foot { position:absolute; left:16mm; right:16mm; bottom:7mm; display:flex; justify-content:space-between;
+        font-size:7pt; color:var(--mut); }
+.chip { display:inline-flex; align-items:center; justify-content:center; width:6.2mm; height:6.2mm;
+        border-radius:999px; font-weight:700; font-size:8pt; flex:none; }
+.chip.big { width:11mm; height:11mm; font-size:14pt; }
+.tag { display:inline-block; font-size:6.8pt; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+       padding:.8mm 2.4mm; border-radius:999px; border:1px solid var(--cacao); color:var(--cacao); }
+.tag.fill { background:var(--cacao); color:#fff; }
+.tag.soft { background:var(--nude); border-color:var(--nude); color:var(--deep); }
+
+/* portada */
+.cover { display:grid; grid-template-columns: 1.15fr 1fr; gap:10mm; height:100%; align-items:center; }
+.cover .arch { height:172mm; border-radius:90mm 90mm 8mm 8mm; background:var(--nude); position:relative;
+               display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
+.cover .arch img.p { width:88%; mix-blend-mode:multiply; margin-bottom:6mm; }
+.cover .arch img.m { position:absolute; width:30mm; right:8mm; top:30mm; }
+.cover .dates { display:flex; gap:3mm; margin:7mm 0 8mm; flex-wrap:wrap; }
+.cover .dates span { font-size:9pt; padding:2mm 4mm; border-radius:999px; background:var(--nude); }
+.cover .dates span.on { background:var(--cacao); color:#fff; }
+
+/* bases */
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; }
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; }
+.grid5 { display:grid; grid-template-columns:repeat(5,1fr); gap:3.5mm; }
+.card { background:var(--nude); border-radius:6mm; padding:5mm; }
+.card.w { background:#fff; border:1px solid var(--line); }
+.card.d { background:var(--deep); color:#fff; }
+.card h3 { font-size:10.5pt; font-weight:700; margin-bottom:2mm; }
+.card p, .card li { font-size:9.6pt; line-height:1.55; color:inherit; }
+.card ul { list-style:none; }
+.card li { padding-left:4mm; position:relative; margin-bottom:1.3mm; }
+.card li:before { content:""; position:absolute; left:0; top:1.6mm; width:1.6mm; height:1.6mm; border-radius:99px; background:var(--cacao); }
+.card.d li:before { background:#E6D0BE; }
+.num { font-size:30pt; font-weight:700; color:var(--cacao); line-height:1; }
+.card.d .num { color:#F0E2D6; }
+.rule { display:flex; gap:3mm; align-items:flex-start; }
+.rule b.n { flex:none; width:7mm; height:7mm; border-radius:99px; background:var(--cacao); color:#fff;
+            display:flex; align-items:center; justify-content:center; font-size:8.5pt; }
+.rule p { font-size:10pt; line-height:1.5; }
+
+/* formatos */
+.fmt { border-radius:6mm; padding:5mm; min-height:54mm; position:relative; }
+.fmt .l { font-size:22pt; font-weight:700; line-height:1; }
+.fmt .t { font-size:11.5pt; font-weight:700; margin:2.5mm 0 1.2mm; }
+.fmt .s { font-size:9pt; line-height:1.45; opacity:.85; }
+.fmt .new { position:absolute; top:4mm; right:4mm; font-size:6.5pt; font-weight:700; letter-spacing:.08em;
+            text-transform:uppercase; padding:.6mm 2mm; border-radius:99px; background:#fff; color:var(--cacao); }
+.fmt img.mm { position:absolute; right:3mm; bottom:2mm; width:12mm; }
+
+/* mapa del mes */
+.cal { display:grid; grid-template-columns:repeat(7,1fr); gap:2.2mm; margin-top:4mm; }
+.cal .h { font-size:7.5pt; color:var(--mut); text-align:center; letter-spacing:.1em; text-transform:uppercase; padding-bottom:1mm; }
+.cal .d { border-radius:3.5mm; height:23.5mm; padding:2mm 2.4mm; position:relative; font-size:7pt; }
+.cal .d .n { font-size:11pt; font-weight:700; }
+.cal .d .ch { display:flex; gap:1mm; position:absolute; left:2.4mm; bottom:2mm; }
+.cal .d .ch .chip { width:5mm; height:5mm; font-size:6.5pt; }
+.cal .d .mk { position:absolute; right:2mm; top:2.2mm; font-size:6pt; font-weight:700; color:#fff;
+              background:var(--cacao); border-radius:99px; padding:.5mm 1.8mm; }
+.cal .d.x { background:transparent; }
+.legend { display:flex; gap:5mm; margin-top:4mm; font-size:8pt; align-items:center; flex-wrap:wrap; }
+.legend i { display:inline-block; width:4mm; height:4mm; border-radius:99px; margin-right:1.5mm; vertical-align:-1mm; }
+
+/* ventas */
+.funnel { display:flex; align-items:stretch; gap:2.4mm; margin:3mm 0 5mm; }
+.funnel .st { flex:1; border-radius:5mm; padding:3.5mm 3mm; text-align:center; font-size:8pt; line-height:1.4; }
+.funnel .st b { display:block; font-size:9.5pt; margin-bottom:1mm; }
+.funnel .ar { align-self:center; color:var(--cacao); font-size:12pt; }
+.time { display:grid; grid-template-columns:17mm 1fr; gap:2.4mm 3mm; font-size:9.4pt; line-height:1.4; }
+.time b { color:var(--cacao); }
+.msg { background:#fff; border:1px solid var(--line); border-radius:5mm 5mm 5mm 1.5mm; padding:3mm 3.5mm;
+       font-size:9.3pt; line-height:1.55; margin-bottom:3.5mm; }
+.msg small { display:block; font-size:6.8pt; letter-spacing:.1em; text-transform:uppercase; color:var(--cacao); font-weight:700; margin-bottom:1mm; }
+
+/* día a día */
+.days { width:100%; border-collapse:separate; border-spacing:0 1.6mm; margin-top:1mm; }
+.days th { font-size:7pt; color:var(--mut); letter-spacing:.12em; text-transform:uppercase; text-align:left;
+           font-weight:700; padding:0 2.5mm; }
+.days td { background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+           padding:2.1mm 2.5mm; vertical-align:middle; font-size:8.3pt; }
+.days td:first-child { border-left:1px solid var(--line); border-radius:4mm 0 0 4mm; width:25mm; }
+.days td:last-child { border-right:1px solid var(--line); border-radius:0 4mm 4mm 0; width:64mm; color:var(--ink2); font-size:7.9pt; }
+.days td.dt b { display:block; font-size:10pt; }
+.days td.dt span { font-size:7pt; color:var(--mut); }
+.days tr.hot td { background:#FBF4EF; border-color:#EBD9CC; }
+.vid { display:flex; gap:2.2mm; align-items:center; }
+.vid div b { display:block; font-size:8.6pt; line-height:1.3; }
+.vid div span { font-size:7.2pt; color:var(--mut); line-height:1.3; }
+.mark { display:table; font-size:6.4pt; font-weight:700; background:var(--cacao); color:#fff; border-radius:99px; padding:.4mm 1.8mm;
+        margin-top:1mm; white-space:nowrap; letter-spacing:.04em; }
+.days.roomy td { padding:4.1mm 3mm; }
+.days:not(.roomy) .mark { display:inline-block; margin:0 0 0 1mm; }
+.days:not(.roomy) td { padding:1.8mm 2.5mm; }
+.days td.dt span.mark { color:#fff; font-size:6.4pt; }
+.days.roomy .vid div b { font-size:10pt; }
+.days.roomy .vid div span { font-size:8pt; }
+.days.roomy td:last-child { font-size:9pt; }
+.days.roomy .chip { width:7.4mm; height:7.4mm; font-size:9pt; }
+.phase-h { display:flex; align-items:baseline; gap:4mm; }
+.phase-h .pill { font-size:8pt; padding:1.2mm 3.5mm; border-radius:99px; color:var(--deep); font-weight:700; }
+
+/* teléfono */
+.phone { width:31mm; height:60mm; border-radius:5.5mm; background:var(--deep); padding:1.3mm; flex:none;
+         box-shadow: 0 2mm 5mm rgba(78,58,48,.16); }
+.scr { width:100%; height:100%; border-radius:4.4mm; overflow:hidden; position:relative; }
+.scr img.prod { position:absolute; left:6%; top:16%; width:88%; mix-blend-mode:multiply; }
+.scr .two { position:absolute; left:3%; right:3%; top:26%; display:flex; gap:2%; }
+.scr .two img { width:49%; mix-blend-mode:multiply; }
+.ost { position:absolute; left:8%; right:8%; top:9%; text-align:center; font-weight:700; font-size:7.6pt; line-height:1.25;
+       color:var(--ink); background:rgba(255,255,255,.92); border-radius:2.4mm; padding:1.4mm 1.6mm; }
+.ost2 { position:absolute; left:10%; right:22%; bottom:17%; text-align:center; font-size:6pt; font-weight:700;
+        color:#fff; background:rgba(78,58,48,.82); border-radius:99px; padding:.9mm 1.4mm; }
+.ui { position:absolute; right:1.6mm; top:44%; display:flex; flex-direction:column; gap:1.8mm; }
+.ui .ic { width:3.6mm; height:3.6mm; border-radius:99px; background:rgba(255,255,255,.9); box-shadow:0 0 0 .3mm rgba(78,58,48,.15); }
+.ui .ic.heart { background:#E7B3C1; }
+.cap { position:absolute; left:2.2mm; bottom:2.4mm; right:7mm; font-size:4.9pt; line-height:1.35; color:var(--ink); }
+.cap b { display:block; font-size:5.4pt; }
+.scr.end { background:var(--deep); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.5mm; }
+.scr.end .mascot { width:15mm; }
+.scr.end .lw { width:16mm; }
+.scr.end .endt { color:#fff; font-size:7pt; font-weight:700; text-align:center; }
+.scr.end .endw { color:#E6D0BE; font-size:5.4pt; }
+.box { position:absolute; left:20%; right:20%; bottom:20%; height:28%; background:#E6D0BE; border-radius:1.6mm; }
+.box.solo { top:34%; bottom:auto; height:32%; }
+.box .lid { position:absolute; left:-6%; right:-6%; top:-14%; height:26%; background:#D9BDA6; border-radius:1.4mm; }
+.box .rib { position:absolute; left:44%; width:12%; top:-14%; bottom:0; background:var(--cacao); }
+.chat { position:absolute; left:6%; right:6%; top:26%; display:flex; flex-direction:column; gap:2mm; }
+.chat .b { font-size:6.2pt; line-height:1.35; padding:1.6mm 2mm; border-radius:2.4mm; max-width:85%; }
+.chat .in { background:#fff; align-self:flex-start; }
+.chat .out { background:#E3EFD9; align-self:flex-end; }
+.mascot2 { position:absolute; width:13mm; left:50%; transform:translateX(-50%); top:25%; }
+.mini { position:absolute; left:8%; right:8%; bottom:20%; display:flex; gap:4%; }
+.mini img { width:48%; mix-blend-mode:multiply; background:#fff; border-radius:1.5mm; }
+
+/* videos estrella */
+.star { display:grid; grid-template-columns: auto 1fr; gap:7mm; height:79mm; padding:4mm 0; border-bottom:1px solid var(--line); }
+.star:last-child { border-bottom:0; }
+.frames { display:flex; gap:2.6mm; }
+.frames .fw { display:flex; flex-direction:column; align-items:center; gap:1.4mm; }
+.frames .fw small { font-size:6.6pt; color:var(--mut); }
+.sinfo h3 { font-size:13pt; font-weight:700; margin:1mm 0 2.5mm; display:flex; gap:2.5mm; align-items:center; }
+.sinfo ol { list-style:none; counter-reset:s; margin-bottom:2.5mm; }
+.sinfo ol li { counter-increment:s; font-size:8.3pt; line-height:1.45; padding-left:6.5mm; position:relative; margin-bottom:1.1mm; }
+.sinfo ol li:before { content:counter(s); position:absolute; left:0; top:.2mm; width:4.4mm; height:4.4mm; border-radius:99px;
+                      background:var(--nude); color:var(--cacao); font-size:6.8pt; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.facts { display:grid; grid-template-columns: 1fr 1fr; gap:2mm 5mm; font-size:7.8pt; line-height:1.4; }
+.facts div small { display:block; font-size:6.4pt; letter-spacing:.1em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:.4mm; }
+.facts a { color:var(--cacao); text-decoration:none; }
+.est { font-weight:700; color:var(--cacao); font-size:10pt; }
+
+/* medir */
+.score { width:100%; border-collapse:collapse; font-size:8.3pt; margin-top:3mm; }
+.score th { text-align:left; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; color:var(--mut); padding:2mm; border-bottom:1.5px solid var(--line); }
+.score td { padding:3.6mm 2mm; font-size:9.2pt; border-bottom:1px solid var(--line); }
+.score td.blank { color:#D9C9BC; }
+
+.lay { display:grid; grid-template-columns: 70mm 1fr; gap:10mm; align-items:start; }
+.big9 { width:70mm; height:124.4mm; border-radius:7mm; background:var(--deep); padding:2mm; position:relative; }
+.big9 .s { position:absolute; inset:2mm; border-radius:5.5mm; overflow:hidden; background:#F4EEE6; }
+.big9 .s img.prod { position:absolute; left:12%; top:17%; width:72%; mix-blend-mode:multiply; }
+.zone { position:absolute; left:0; right:0; background:repeating-linear-gradient(135deg, rgba(78,58,48,.12) 0 2mm, rgba(78,58,48,.03) 2mm 4mm);
+        display:flex; align-items:center; justify-content:center; font-size:6.4pt; color:var(--deep); font-weight:700; letter-spacing:.06em; }
+.zone.t { top:0; height:13%; }
+.zone.b { bottom:0; height:17.7%; }
+.zone.r { top:13%; bottom:17.7%; right:0; left:auto; width:13%; writing-mode:vertical-rl; }
+.g-hook { position:absolute; left:10%; right:17%; top:16%; background:rgba(255,255,255,.92); border-radius:3mm; text-align:center;
+          font-weight:700; font-size:10pt; padding:2mm 2mm; color:var(--ink); }
+.g-price { position:absolute; left:16%; right:23%; top:74%; background:var(--deep); color:#FBF6F1; border-radius:99px; text-align:center;
+           font-weight:700; font-size:7.6pt; padding:1.4mm 2mm; }
+.g-sub { position:absolute; left:10%; right:17%; top:67.5%; text-align:center; font-size:6.6pt; color:var(--ink);
+         background:rgba(255,255,255,.75); border-radius:2mm; padding:1mm; }
+.callouts { display:grid; grid-template-columns: repeat(3,1fr); gap:4.5mm; }
+.co { border-radius:5mm; padding:4mm 4.5mm; background:var(--nude); }
+.co h3 { font-size:10pt; font-weight:700; margin-bottom:2mm; display:flex; gap:2mm; align-items:center; }
+.co .k { display:inline-flex; width:6mm; height:6mm; border-radius:99px; background:var(--cacao); color:#fff; font-size:7.5pt; align-items:center; justify-content:center; flex:none; }
+.co p, .co li { font-size:9pt; line-height:1.5; }
+.co ul { list-style:none; } .co li { margin-bottom:1mm; }
+.kv { display:grid; grid-template-columns: 1fr auto; gap:1.2mm 4mm; font-size:8.6pt; }
+.kv b { color:var(--cacao); text-align:right; }
+.sw { display:inline-block; width:3.6mm; height:3.6mm; border-radius:99px; vertical-align:-.8mm; margin-right:1mm; box-shadow:0 0 0 .3mm rgba(0,0,0,.12); }
+.tl { display:flex; height:13mm; border-radius:4mm; overflow:hidden; margin-top:2mm; }
+.tl div { display:flex; flex-direction:column; justify-content:center; padding:0 2.5mm; font-size:7.6pt; line-height:1.25; }
+.tl div b { font-size:8.4pt; }
+.tlx { display:flex; justify-content:space-between; font-size:6.6pt; color:var(--mut); margin-top:1mm; }
+.steps2 { display:grid; grid-template-columns: 1.25fr 1fr; gap:8mm; }
+.stp { display:grid; grid-template-columns: 8mm 1fr; gap:3mm; margin-bottom:3.4mm; align-items:start; }
+.stp .n { width:8mm; height:8mm; border-radius:99px; background:var(--cacao); color:#fff; display:flex; align-items:center; justify-content:center; font-size:9pt; font-weight:700; }
+.stp p { font-size:9.2pt; line-height:1.5; }
+.stp p b { display:block; font-size:10pt; }
+.path { display:inline-block; font-size:7.6pt; background:var(--nude); border-radius:99px; padding:.5mm 2.4mm; margin-top:.8mm; color:var(--deep); }
+.hooks { display:grid; grid-template-columns: repeat(4,1fr); gap:4mm; }
+.hk { border-radius:5mm; padding:4.5mm; background:var(--nude); min-height:53mm; display:flex; flex-direction:column; }
+.hk small { font-size:6.6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--cacao); font-weight:700; }
+.hk .f { font-size:9.2pt; font-weight:700; margin:1.6mm 0 2.4mm; line-height:1.35; }
+.hk .ex { margin-top:auto; display:flex; flex-direction:column; gap:1.4mm; }
+.hk .ex span { font-size:8.2pt; background:#fff; border-radius:99px; padding:1.2mm 2.6mm; }
+.hk.d { background:var(--deep); color:#fff; } .hk.d small { color:#E6D0BE; }
+.beats { display:grid; grid-template-columns: repeat(4,1fr); gap:3mm; margin:3mm 0 5mm; }
+.beat { border-radius:5mm; padding:3.6mm 4mm; }
+.beat .t { font-size:7pt; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--cacao); }
+.beat b { display:block; font-size:10.5pt; margin:1mm 0 1.6mm; }
+.beat p { font-size:9.2pt; line-height:1.5; }
+.beat q { display:block; margin-top:2.5mm; font-size:9pt; font-style:normal; background:#fff; border-radius:3mm; padding:2mm 2.4mm; line-height:1.45; }
+.scripts { display:grid; grid-template-columns: repeat(4,1fr); gap:5mm; }
+.sc { display:flex; flex-direction:column; align-items:center; }
+.sc .phone { width:34mm; height:65mm; }
+.sc h4 { font-size:9.6pt; font-weight:700; margin:3mm 0 1.5mm; text-align:center; }
+.sc .vo { font-size:8.2pt; line-height:1.55; background:var(--nude); border-radius:4mm; padding:3mm 3.4mm; }
+.sc .vo i { font-style:normal; color:var(--cacao); font-weight:700; }
+.cap2 { display:grid; grid-template-columns: repeat(3,1fr); gap:5mm; }
+.capx { background:#fff; border:1px solid var(--line); border-radius:5mm; padding:4mm 4.5mm; font-size:8.8pt; line-height:1.6; }
+.capx small { display:block; font-size:6.6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--cacao); font-weight:700; margin-bottom:1.5mm; }
+.capx .h { color:var(--mut); }
+</style></head><body>
+<section class="page"><div class="top"><span>VESTA BAGS · La plantilla</span><img src="img/logo-dark.png"></div>
+  <h2>La plantilla de CapCut</h2>
+  <p class="lead" style="margin-bottom:5mm">Se arma una sola vez. Todos los videos usan el mismo color, la misma letra y el mismo orden: así se ven de una misma marca sin necesidad de ser creativos.</p>
+  <div class="lay">
+    <div class="big9"><div class="s">
+      <img class="prod" src="img/2056-2.jpg">
+      <div class="zone t">ZONA DE LA APP · VACÍA</div>
+      <div class="zone r">BOTONES</div>
+      <div class="zone b">ZONA DE LA APP · VACÍA</div>
+      <div class="g-hook">Hello Kitty original en La Paz</div>
+      <div class="g-sub">subtítulos de la voz, aquí</div>
+      <div class="g-price">My Melody · [precio] Bs</div>
+    </div></div>
+    <div>
+      <div class="callouts">
+        <div class="co"><h3><span class="k">1</span>Gancho</h3>
+          <ul><li>Arriba, debajo de la zona de la app</li><li>6 palabras como máximo, 2 líneas</li><li>Comfortaa negrita, espresso <span class="sw" style="background:#221B18"></span></li>
+          <li>Sobre una etiqueta blanca al 90 %, con esquinas redondeadas</li><li>Desde 0 hasta 1,5 s</li></ul></div>
+        <div class="co"><h3><span class="k">2</span>Precio o llamado</h3>
+          <ul><li>Abajo, por encima de la zona de la app</li><li>Más chico que el gancho, la mitad más o menos</li>
+          <li>Letras marfil <span class="sw" style="background:#FBF6F1"></span> sobre una píldora cacao <span class="sw" style="background:#4E3A30"></span></li>
+          <li>Solo el precio real o «Escríbenos por WhatsApp»</li></ul></div>
+        <div class="co"><h3><span class="k">3</span>Color (Ajustar)</h3>
+          <div class="kv"><span>Temperatura</span><b>+8</b><span>Contraste</span><b>−6</b><span>Saturación</span><b>−8</b>
+          <span>Exposición</span><b>−3</b><span>Luces</span><b>−10</b><span>Sombras</span><b>+6</b><span>Nitidez</span><b>+4</b></div>
+          <p style="margin-top:1.6mm;font-size:7.4pt;color:var(--mut)">Son un punto de partida: ajústalos una vez a tu ojo y no los cambies más.</p></div>
+      </div>
+      <div class="co" style="margin-top:5mm;background:#fff;border:1px solid var(--line)"><h3>El orden de cada video (unos 12 s)</h3>
+        <div class="tl">
+          <div style="width:12.5%;background:#7A4B3A;color:#fff"><b>Gancho</b>0–1,5 s</div>
+          <div style="width:50%;background:#F3E9E1"><b>4 tomas de 1,5 s</b>una por movimiento: abrir, detalle, girar, al hombro</div>
+          <div style="width:16.5%;background:#E6D0BE"><b>Precio</b>o WhatsApp</div>
+          <div style="width:21%;background:#4E3A30;color:#fff"><b>Cierre</b>«Compra en Vesta Bags»</div>
+        </div>
+        <div class="tlx"><span>0 s</span><span>1,5</span><span>7,5</span><span>9,5</span><span>12 s</span></div>
+      </div>
+      <div class="grid3" style="margin-top:5mm;gap:4.5mm">
+        <div class="co"><h3>Animación del texto</h3><p>Entrada: «Fundido», 0,3 s. Sin rebotes, sin máquina de escribir y sin brillos.</p></div>
+        <div class="co"><h3>Cortes</h3><p>Cortes secos, sin transiciones. La cámara lenta, solo en los detalles.</p></div>
+        <div class="co"><h3>Exportar</h3><p>1080p · 30 fps · tasa de bits recomendada o alta. Sin el final de CapCut.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Plantilla CapCut y ganchos · VESTA BAGS · noviembre 2026</span><span>1</span></div>
+</section>
+<section class="page"><div class="top"><span>VESTA BAGS · Paso a paso</span><img src="img/logo-dark.png"></div>
+  <h2>Cómo armarla y cómo usarla</h2>
+  <p class="lead" style="margin-bottom:5mm">Los nombres de los menús pueden cambiar un poco según tu versión de CapCut.</p>
+  <div class="steps2">
+    <div class="card w"><h3 style="font-size:12pt;margin-bottom:3mm">Una sola vez · 20 minutos</h3><div style="columns:2;column-gap:6mm"><div class="stp"><span class="n">1</span><p><b>Proyecto nuevo en 9:16</b>Importa 4 clips de prueba y elige el formato vertical.<br><span class="path">Formato › 9:16</span></p></div><div class="stp"><span class="n">2</span><p><b>Color para todo</b>Toca un clip, pon los valores de la página anterior y aplícalos a todos.<br><span class="path">Ajustar › Aplicar a todo</span></p></div><div class="stp"><span class="n">3</span><p><b>La letra Comfortaa</b>Descárgala gratis de Google Fonts e impórtala. Si tu versión no deja importar letras, usa la redondeada más parecida.<br><span class="path">Texto › Fuente › Importar</span></p></div><div class="stp"><span class="n">4</span><p><b>El texto del gancho</b>Escribe un gancho de prueba y dale el estilo: color, etiqueta y animación de entrada «Fundido».<br><span class="path">Texto › Añadir texto › Estilo · Animación</span></p></div><div class="stp"><span class="n">5</span><p><b>El texto del precio</b>Lo mismo, con la píldora cacao. Colócalo encima de la zona de abajo.<br><span class="path">Texto › Añadir texto</span></p></div><div class="stp"><span class="n">6</span><p><b>La animación de cierre</b>Agrega al final tu clip «Compra en Vesta Bags».<br><span class="path">+ › Añadir clip</span></p></div><div class="stp"><span class="n">7</span><p><b>Guarda el proyecto</b>Llámalo «PLANTILLA VESTA – NO BORRAR».</p></div><div class="stp"><span class="n">8</span><p><b>Quita el final de CapCut</b>Desactívalo una sola vez, para que no salga la marca de agua.<br><span class="path">Ajustes › Añadir final predeterminado: no</span></p></div></div></div>
+    <div class="card"><h3 style="font-size:12pt;margin-bottom:3mm">Cada video · 5 minutos</h3><div class="stp"><span class="n">1</span><p><b>Duplica la plantilla</b>Mantén presionado el proyecto y elige «Duplicar».<br><span class="path">Mantener presionado › Duplicar</span></p></div><div class="stp"><span class="n">2</span><p><b>Cambia los clips</b>Toca cada clip y reemplázalo por tus tomas. El color y los textos se quedan.<br><span class="path">Clip › Reemplazar</span></p></div><div class="stp"><span class="n">3</span><p><b>Cambia los textos</b>Escribe el gancho y el precio del video.</p></div><div class="stp"><span class="n">4</span><p><b>Exporta y sube</b>1080p a 30 fps. La música agrégala dentro de TikTok o Instagram.<br><span class="path">Exportar</span></p></div>
+      <div class="card d" style="margin-top:4mm;padding:4mm"><p style="font-size:9pt"><b>La regla:</b> nunca empieces un video desde cero. Siempre duplica la plantilla. Eso es lo que hace que todos se vean iguales de bien.</p></div></div>
+  </div>
+  <div class="foot"><span>Plantilla CapCut y ganchos · VESTA BAGS · noviembre 2026</span><span>2</span></div>
+</section>
+<section class="page"><div class="top"><span>VESTA BAGS · Ganchos</span><img src="img/logo-dark.png"></div>
+  <h2>Cómo escribir los ganchos</h2>
+  <p class="lead" style="margin-bottom:5mm">El gancho es lo primero que se lee, en el segundo 0. Hay 7 fórmulas: elige una por video.
+  La prueba: si alguien que no te conoce entiende en 1 segundo qué es y si es para ella, funciona.</p>
+  <div class="hooks"><div class="hk"><small>1 · Personaje + original + dónde</small><div class="f">Lo que la gente ya busca, al principio.</div><div class="ex"><span>«Hello Kitty original en La Paz»</span><span>«Stitch llegó a VESTA»</span><span>«Garfield, pero elegante»</span></div></div><div class="hk"><small>2 · La pregunta que te hacen</small><div class="f">Lo que te escriben por WhatsApp.</div><div class="ex"><span>«¿Le entra una tablet?»</span><span>«¿Pagas al recibir? Sí»</span><span>«¿Envían a todo Bolivia?»</span></div></div><div class="hk"><small>3 · Regalo</small><div class="f">Para quién es, no qué es.</div><div class="ex"><span>«¿Qué le regalo a mi mamá?»</span><span>«Para tu mejor amiga»</span><span>«Amigo secreto, resuelto»</span></div></div><div class="hk"><small>4 · Identidad</small><div class="f">Que se reconozca en la frase.</div><div class="ex"><span>«Si eres más Mafalda que Susanita…»</span><span>«Para las que aman a Stitch»</span><span>«POV: tu cartera combina contigo»</span></div></div><div class="hk"><small>5 · Novedad</small><div class="f">Algo nuevo, que es real.</div><div class="ex"><span>«Llegó la Mafalda rosada»</span><span>«Abre conmigo»</span><span>«Lo nuevo para Navidad»</span></div></div><div class="hk"><small>6 · Elige</small><div class="f">Que comente su opción.</div><div class="ex"><span>«¿Rosado o celeste?»</span><span>«Mafalda o Garfield»</span><span>«Elige: 1, 2 o 3»</span></div></div><div class="hk"><small>7 · Precio directo</small><div class="f">Claro y sin rodeos (solo el precio real).</div><div class="ex"><span>«My Melody · [precio] Bs»</span><span>«Mochila Stitch · [precio] Bs»</span></div></div><div class="hk d"><small>Reglas</small><ul style="list-style:none;font-size:8.4pt;line-height:1.55;margin-top:2mm"><li>6 palabras como máximo</li><li>El personaje en las 2 primeras palabras</li><li>Lo que dice = lo que se ve</li><li>Sin «barato», «remate» ni «oferta»</li><li>Sin nombrar a Tizza</li><li>1 emoji como máximo: 🤍</li></ul></div></div>
+  <div class="foot"><span>Plantilla CapCut y ganchos · VESTA BAGS · noviembre 2026</span><span>3</span></div>
+</section>
+<section class="page"><div class="top"><span>VESTA BAGS · Voz IA</span><img src="img/logo-dark.png"></div>
+  <h2>Videos con voz de IA: «Te la presento»</h2>
+  <p class="lead" style="margin-bottom:2mm">Es lo que hace la cuenta que vende: una voz que describe la cartera mientras se ve. Es fácil de grabar porque son
+  las mismas tomas de siempre, y además repite el nombre y el precio. Puede ser 1 de cada 3 videos.</p>
+  <div class="beats"><div class="beat" style="background:#F8E2E8"><span class="t">0–3 s</span><b>Lo presentas</b><p>Nombre del personaje y qué es. Aquí la voz dice el gancho.</p><q>«Te presento la My Melody, de Hello Kitty and Friends.»</q></div><div class="beat" style="background:#F3E9E1"><span class="t">3–10 s</span><b>2 o 3 detalles</b><p>Solo lo que se ve en la toma. Una frase por toma.</p><q>«Es rosada, con herrajes dorados y un dije de corazón.»</q></div><div class="beat" style="background:#E4EEE5"><span class="t">10–14 s</span><b>Para quién</b><p>Uso o regalo, sin exagerar.</p><q>«Para ti o para regalar esta Navidad.»</q></div><div class="beat" style="background:#E2EDF6"><span class="t">14–18 s</span><b>Dónde y cómo</b><p>Siempre el mismo cierre.</p><q>«La encuentras en VESTA, en La Paz. Escríbenos por WhatsApp.»</q></div></div>
+  <div class="grid3" style="gap:5mm">
+    <div class="co"><h3>La voz en CapCut</h3><ul><li>Escribe el guion como texto y conviértelo con «Texto a voz»</li>
+      <li>Elige una voz femenina y <b>usa siempre la misma</b>: la voz también es marca</li><li>Velocidad entre 1,0 y 1,1</li>
+      <li>Después, «Subtítulos automáticos», con el estilo de la plantilla</li></ul></div>
+    <div class="co"><h3>Cómo escribir para la voz</h3><ul><li>Frases cortas: 8 a 10 palabras</li><li>Una frase por toma</li>
+      <li>Solo detalles que se ven y medidas confirmadas</li><li>El precio solo si es real</li><li>Música de fondo al 15–20 %</li></ul></div>
+    <div class="co" style="background:var(--deep);color:#fff"><h3>Etiqueta de IA (obligatoria)</h3><ul>
+      <li>TikTok: al publicar, en «Más opciones», activa «Contenido generado por IA»</li>
+      <li>Instagram: activa la etiqueta de IA al publicar</li>
+      <li>En el caption: «voz generada con IA»</li></ul></div>
+  </div>
+  <div class="foot"><span>Plantilla CapCut y ganchos · VESTA BAGS · noviembre 2026</span><span>4</span></div>
+</section>
+<section class="page"><div class="top"><span>VESTA BAGS · Guiones listos</span><img src="img/logo-dark.png"></div>
+  <h2>4 guiones listos para la voz</h2>
+  <p class="lead" style="margin-bottom:4mm">Copia el texto en «Texto a voz». Describen solo lo que se ve en las fotos. Si tu cartera tiene otro color o
+  la correa es distinta, cámbialo. Pon el precio real donde dice [precio].</p>
+  <div class="scripts"><div class="sc"><div class="phone "><div class="scr" style="background:#F8E2E8"><img class="prod" style="transform:scale(0.95);transform-origin:50% 50%" src="img/2056-1.jpg"><div class="ost">Hello Kitty original en La Paz</div><div class="ost2">My Melody · [precio] Bs</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div><h4>My Melody</h4><div class="vo">Te presento la <i>My Melody</i>, de Hello Kitty and Friends. Es rosada, con herrajes dorados y un dije de corazón. Se lleva al hombro. Para ti o para regalar esta Navidad. <i>La encuentras en VESTA, en La Paz.</i> Escríbenos por WhatsApp.</div></div><div class="sc"><div class="phone "><div class="scr" style="background:#F7E3E8"><img class="prod" style="transform:scale(0.95);transform-origin:50% 50%" src="img/2128-1.jpg"><div class="ost">Mafalda original en La Paz</div><div class="ost2">Mafalda rosada · [precio] Bs</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div><h4>Mafalda rosada</h4><div class="vo">Si eres más <i>Mafalda</i> que Susanita, mira esta. Tiene el borde en ondas, a Mafalda con su flor y una borla que se mueve. También viene en celeste. <i>La encuentras en VESTA, en La Paz.</i> Escríbenos por WhatsApp.</div></div><div class="sc"><div class="phone "><div class="scr" style="background:#FFFFFF"><img class="prod" style="transform:scale(0.95);transform-origin:50% 50%" src="img/2141-1.jpg"><div class="ost">Garfield original en La Paz</div><div class="ost2">Garfield · [precio] Bs</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div><h4>Garfield</h4><div class="vo"><i>Garfield</i>, pero elegante. Tiene a Garfield con su taza, herrajes dorados y un dije de Garfield colgando. Viene en negro y en verde. <i>La encuentras en VESTA, en La Paz.</i> Escríbenos por WhatsApp.</div></div><div class="sc"><div class="phone "><div class="scr" style="background:#E2EDF6"><img class="prod" style="transform:scale(0.95);transform-origin:50% 50%" src="img/2100-1.jpg"><div class="ost">Stitch original en La Paz</div><div class="ost2">Mochila Stitch · [precio] Bs</div><div class="ui"><i class="ic heart"></i><i class="ic"></i><i class="ic"></i></div><div class="cap"><b>VESTA BAGS</b><span>Escríbenos por WhatsApp 🤍</span></div></div></div><h4>Mochila Stitch</h4><div class="vo">Para las que aman a <i>Stitch</i>. Una mochila celeste con una ventana de corazón con brillos, y adentro, Stitch y Ángel. <i>La encuentras en VESTA, en La Paz.</i> Escríbenos por WhatsApp.</div></div></div>
+  <div class="foot"><span>Plantilla CapCut y ganchos · VESTA BAGS · noviembre 2026</span><span>5</span></div>
+</section>
+<section class="page"><div class="top"><span>VESTA BAGS · Captions</span><img src="img/logo-dark.png"></div>
+  <h2>El texto de abajo (caption)</h2>
+  <p class="lead" style="margin-bottom:5mm">Siempre 4 líneas, en el mismo orden. En TikTok lo importante va en la pantalla; el caption acompaña.</p>
+  <div class="beats" style="grid-template-columns:repeat(4,1fr);margin-top:0">
+    <div class="beat" style="background:#F8E2E8"><span class="t">Línea 1</span><b>El gancho</b><p>Lo mismo que dice la pantalla, o casi.</p></div>
+    <div class="beat" style="background:#F3E9E1"><span class="t">Línea 2</span><b>Un detalle</b><p>Color, personaje o para quién es.</p></div>
+    <div class="beat" style="background:#E4EEE5"><span class="t">Línea 3</span><b>Cómo comprar</b><p>WhatsApp + «En La Paz pagas al recibir».</p></div>
+    <div class="beat" style="background:#E2EDF6"><span class="t">Línea 4</span><b>3 a 5 hashtags</b><p>El personaje + carteras + lapaz + bolivia.</p></div>
+  </div>
+  <div class="cap2"><div class="capx"><small>Video con gancho de personaje</small>Hello Kitty original, en La Paz 🤍<br>La My Melody, rosada y con herrajes dorados.<br>Escríbenos por WhatsApp · En La Paz pagas al recibir.<br><span class='h'>#hellokitty #mymelody #carteras #lapaz #bolivia</span></div><div class="capx"><small>Video de regalo</small>¿Ya tienes el regalo de mamá?<br>Esta Mafalda llega lista para regalar.<br>Escríbenos por WhatsApp · Delivery en La Paz y envíos a toda Bolivia.<br><span class='h'>#regalos #mafalda #carteras #lapaz #navidad</span></div><div class="capx"><small>Video con voz IA</small>Garfield, pero elegante 🤍<br>En negro y en verde.<br>Escríbenos por WhatsApp · En La Paz pagas al recibir.<br>Voz generada con IA.<br><span class='h'>#garfield #carteras #lapaz #bolivia</span></div></div>
+  <div class="foot"><span>Plantilla CapCut y ganchos · VESTA BAGS · noviembre 2026</span><span>6</span></div>
+</section></body></html>
